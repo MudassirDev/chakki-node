@@ -7,6 +7,11 @@ app.use(cookieParser());
 app.use(express.json());
 app.use("/users", userRouter);
 
+app.get("/", (req, res) => {
+    res.status(200).json({ message: "ok" });
+    return;
+})
+
 app.listen(8080, ()=> {
     console.log("Listening on the port :8080");
 });
