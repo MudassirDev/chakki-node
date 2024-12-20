@@ -30,7 +30,7 @@ const addUser = async ({email, username, password}) => {
 };
 
 const checkUser = async (key, value) => {
-    const query = `SELECT * FROM users WHERE ${key} = ?`;
+    const query = `SELECT userId, username, email FROM users WHERE ${key} = ? LIMIT 1`;
     try {
         const result = pool.query(query, [value]);
         return result;
